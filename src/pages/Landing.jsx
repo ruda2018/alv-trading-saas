@@ -118,8 +118,8 @@ export default function Landing() {
                 </div>
 
                 <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3.75rem)', fontWeight: 900, lineHeight: 1.05, letterSpacing: '-0.03em', marginBottom: 24 }}>
-                  Forex <span style={{ color: 'var(--color-primary)', textShadow: '0 0 40px rgba(16,185,129,0.3)' }}>Scalping</span><br />
-                  3 a 7 Pips de Spread
+                  Spreads de <span style={{ color: 'var(--color-primary)', textShadow: '0 0 40px rgba(16,185,129,0.3)' }}>3 a 7 Pips</span><br />
+                  Scalping 20 a 50 Pips
                 </h1>
 
                 <p style={{ fontSize: 'clamp(0.95rem, 2vw, 1.15rem)', color: '#94a3b8', lineHeight: 1.6, maxWidth: 520, marginBottom: 32 }}>
@@ -243,7 +243,7 @@ export default function Landing() {
               <FeatureCard icon={<TrendingUp size={24} />} title="Multi-Metodologia" desc="Wyckoff, Elliott Wave, Price Action, Smart Money, Volume Profile e mais 5 metodologias combinadas em uma única análise." delay={0} />
               <FeatureCard icon={<Zap size={24} />} title="Execução Automática" desc="Sinal gerado → ordem enviada ao MT5 → stop loss colocado → trailing ativado. Zero intervenção manual." delay={1} />
               <FeatureCard icon={<Shield size={24} />} title="Gerenciamento de Risco" desc="Limite de drawdown diário, pausa após perdas consecutivas, volume proporcional ao saldo." delay={2} />
-              <FeatureCard icon={<BarChart3 size={24} />} title="4 Pares Forex" desc="EURUSD, GBPUSD, USDJPY, AUDUSD — scalping de 3 a 7 pips com spreads reduzidos e stops milimétricos." delay={0} />
+              <FeatureCard icon={<BarChart3 size={24} />} title="4 Pares Forex" desc="EURUSD, GBPUSD, USDJPY, AUDUSD — spreads reduzidos em 3 a 7 pips e scalping de 20 a 50 pips com stops milimétricos e Trailing Stop (Stop Móvel) para sustentabilidade e consistência de cada operação." delay={0} />
               <FeatureCard icon={<Monitor size={24} />} title="Painel ao Vivo" desc="Acompanhe todos os sinais em tempo real pelo painel web. Veja entry, SL, TP e confiança." delay={1} />
               <FeatureCard icon={<Cpu size={24} />} title="Agente Local" desc="Um script Python leve que roda em VPS e conecta seu MT5 ao servidor. Instalação em 2 minutos." delay={2} />
             </div>
