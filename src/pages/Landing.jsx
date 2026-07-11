@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowRight, Check, ChevronDown, TrendingUp, Shield, Zap, BarChart3, Monitor, Cpu } from 'lucide-react'
 import Navbar from '../components/Navbar'
@@ -126,18 +127,21 @@ export default function Landing() {
                 </p>
 
                 <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-                  <motion.a
-                    href="/app"
+                  <motion.div
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.97 }}
-                    style={{
-                      padding: '14px 32px', borderRadius: 12, background: 'var(--color-primary)', color: '#060a12',
-                      fontWeight: 700, fontSize: 16, display: 'inline-flex', alignItems: 'center', gap: 8,
-                      boxShadow: '0 0 40px rgba(16,185,129,0.15), 0 0 80px rgba(16,185,129,0.05)',
-                    }}
                   >
-                    Testar Grátis por 5 Dias <ArrowRight size={18} />
-                  </motion.a>
+                    <Link
+                      to="/app"
+                      style={{
+                        padding: '14px 32px', borderRadius: 12, background: 'var(--color-primary)', color: '#060a12',
+                        fontWeight: 700, fontSize: 16, display: 'inline-flex', alignItems: 'center', gap: 8, textDecoration: 'none',
+                        boxShadow: '0 0 40px rgba(16,185,129,0.15), 0 0 80px rgba(16,185,129,0.05)',
+                      }}
+                    >
+                      Testar Grátis por 5 Dias <ArrowRight size={18} />
+                    </Link>
+                  </motion.div>
                   <a href="#funciona"
                     style={{
                       padding: '14px 28px', borderRadius: 12, border: '1px solid rgba(255,255,255,0.08)',
@@ -271,9 +275,9 @@ export default function Landing() {
                       <Check size={16} style={{ color: '#475569', flexShrink: 0 }} /> Suporte prioritário
                     </div>
                   </div>
-                  <motion.a href="/app" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
-                    style={{ display: 'block', padding: 14, borderRadius: 12, background: 'var(--color-primary)', color: '#060a12', fontWeight: 700, fontSize: 15, textAlign: 'center' }}
-                  >Começar Agora</motion.a>
+                  <Link to="/app"
+                    style={{ display: 'block', padding: 14, borderRadius: 12, background: 'var(--color-primary)', color: '#060a12', fontWeight: 700, fontSize: 15, textAlign: 'center', textDecoration: 'none' }}
+                  >Começar Agora</Link>
                 </GlassCard>
               </Reveal>
 
@@ -320,9 +324,11 @@ export default function Landing() {
               </h2>
               <p style={{ color: '#94a3b8', fontSize: 16, marginBottom: 32 }}>5 dias grátis. Sem compromisso. Sem cartão de crédito.</p>
               <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
-                <motion.a href="/app" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
-                  style={{ padding: '14px 32px', borderRadius: 12, background: 'var(--color-primary)', color: '#060a12', fontWeight: 700, fontSize: 16 }}
-                >Testar Grátis Agora</motion.a>
+                <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+                  <Link to="/app"
+                    style={{ padding: '14px 32px', borderRadius: 12, background: 'var(--color-primary)', color: '#060a12', fontWeight: 700, fontSize: 16, textDecoration: 'none' }}
+                  >Testar Grátis Agora</Link>
+                </motion.div>
                 <motion.a href="https://wa.me/5591986043702?text=Ol%C3%A1%20Eduardo,%20quero%20saber%20mais%20sobre%20o%20ALV%20Trading" target="_blank"
                   whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
                   style={{ padding: '14px 28px', borderRadius: 12, border: '1px solid rgba(255,255,255,0.1)', color: '#cbd5e1', fontWeight: 500, fontSize: 16 }}

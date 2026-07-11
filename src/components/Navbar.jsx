@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 
@@ -33,7 +34,7 @@ export default function Navbar() {
       }}
     >
       <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 16px', height: 64, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <a href="/" style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+        <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <div style={{ position: 'relative', width: 44, height: 44, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
             <motion.div
               animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
@@ -49,7 +50,7 @@ export default function Navbar() {
           <span style={{ fontSize: 18, fontWeight: 700, letterSpacing: '-0.02em' }}>
             ALV<span style={{ color: 'var(--color-primary)' }}>Trading</span>
           </span>
-        </a>
+        </Link>
 
         <div style={{ display: 'none', gap: 32, alignItems: 'center' }} className="nav-desktop">
           {links.map(l => (
@@ -58,14 +59,14 @@ export default function Navbar() {
               onMouseLeave={e => e.target.style.color = '#94a3b8'}
             >{l.label}</a>
           ))}
-          <a href="/app"
+          <Link to="/app"
             style={{
               padding: '8px 20px', borderRadius: 10, background: 'var(--color-primary)', color: '#060a12',
-              fontWeight: 600, fontSize: 14, transition: 'opacity 0.2s',
+              fontWeight: 600, fontSize: 14, transition: 'opacity 0.2s', textDecoration: 'none',
             }}
             onMouseEnter={e => e.target.style.opacity = '0.9'}
             onMouseLeave={e => e.target.style.opacity = '1'}
-          >Testar Grátis</a>
+          >Testar Grátis</Link>
         </div>
 
         <button
@@ -95,12 +96,12 @@ export default function Navbar() {
                   style={{ padding: '10px 0', color: '#94a3b8', fontSize: 14, borderBottom: '1px solid rgba(255,255,255,0.05)' }}
                 >{l.label}</a>
               ))}
-              <a href="/app" onClick={() => setMobileOpen(false)}
+              <Link to="/app" onClick={() => setMobileOpen(false)}
                 style={{
                   marginTop: 8, padding: '12px 0', borderRadius: 10, background: 'var(--color-primary)',
-                  color: '#060a12', fontWeight: 600, fontSize: 14, textAlign: 'center',
+                  color: '#060a12', fontWeight: 600, fontSize: 14, textAlign: 'center', textDecoration: 'none', display: 'block',
                 }}
-              >Testar Grátis</a>
+              >Testar Grátis</Link>
             </div>
           </motion.div>
         )}
