@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
-import { LogOut, Signal, Activity, DollarSign, Clock } from 'lucide-react'
+import { LogOut, Signal, Activity, DollarSign, Clock, AlertTriangle } from 'lucide-react'
 
 const API = 'https://alv-trading-api.onrender.com'
 
@@ -15,6 +15,18 @@ export default function Dashboard() {
   useEffect(() => {
     const token = localStorage.getItem('token')
     if (!token) { navigate('/app'); return }
+
+    const trialEnds = localStorage.getItem('trial_ends_at')
+    if (trialEnds) {
+      const ends = new Date(trialEnds)
+      const now = new Date()
+      if (now > ends) {
+        localStorage.clear()
+        navigate('/app')
+        return
+      }
+    }
+
     setUser({ email: localStorage.getItem('email'), id: localStorage.getItem('user_id') })
 
     const ws = new WebSocket(`wss://alv-trading-api.onrender.com/ws?token=${token}`)
@@ -56,6 +68,17 @@ export default function Dashboard() {
             <div style={{ width: 8, height: 8, borderRadius: '50%', background: connected ? '#10b981' : '#ef4444' }} />
             <span style={{ fontSize: 12, color: '#94a3b8' }}>{connected ? 'Conectado' : 'Desconectado'}</span>
           </div>
+          {(() => {
+            const trialEnds = localStorage.getItem('trial_ends_at')
+            if (trialEnds) {
+              const days = Math.max(0, Math.ceil((new Date(trialEnds) - new Date()) / (1000*60*60*24)))
+              const plan = localStorage.getItem('plan') || 'trial'
+              if (plan === 'trial') {
+                return <span style={{ fontSize: 11, padding: '3px 8px', borderRadius: 6, background: days <= 2 ? 'rgba(239,68,68,0.15)' : 'rgba(234,179,8,0.15)', color: days <= 2 ? '#ef4444' : '#eab308', fontWeight: 600 }}>Trial: {days}d restante{days !== 1 ? 's' : ''}</span>
+              }
+            }
+            return null
+          })()}
           <span style={{ fontSize: 13, color: '#64748b' }}>{user?.email}</span>
           <button onClick={logout}
             style={{ display: 'flex', alignItems: 'center', gap: 4, padding: '6px 12px', borderRadius: 8, border: '1px solid #1e293b', background: 'transparent', color: '#94a3b8', fontSize: 12, cursor: 'pointer' }}
